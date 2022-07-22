@@ -23,7 +23,7 @@ class Form extends Component {
       <>
         <form action="" onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.handleTaskDescriptionChange} value={this.state.task}/>
-            <button className="border-solid border-2 border-indigo-600"type='submit'>Submit</button>
+            <button className="border-solid border-2 border-indigo-600" type='submit'>Submit</button>
         </form>
       
       </>

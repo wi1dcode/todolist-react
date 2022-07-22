@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
+import Task from "./Task"
 
 class List extends Component {
   
   render() {
-    console.log("list Tasks",this.props.listTasks)
+    console.log("list Tasks",this.props)
     return (
       <>
-        <p>{this.props.descriptionTask}</p>
-        <p>{this.props.statusTask}</p>
-        <button className="border-solid border-2 border-red-600 ..." onClick={this.props.modifyTask}>Modifie</button>
-        <button className="border-solid border-2 border-indigo-600 ..." onClick={this.props.deleteTask}>delete Me</button>
+        {this.props.tasks.map( (task) => {
+          return(
+          <>
+            <Task 
+              tasks={this.props.tasks}
+            
+            
+            />
+          </>
+          )
+          
+        })}
+        
       </>
       
     )

@@ -31,36 +31,30 @@ class App extends Component {
     })
   })
 
-  modifyTask = ( (index) => {
+  modifyTask = ( (e) => {
+    e.preventDefault()
     const tasksClone = [...this.state.tasks]
     this.setState({
       tasks: tasksClone
     })
   })
 
+  openEditTask = ( () => {
+    
+  })
+
   render() {
     console.log(this.state);
-    const {description, status} = this.state.tasks
     return (
 
       <>
-        <h1 className="text-3xl font-bold">ToDo List</h1>
+        <h1 className="text-3xl font-bold">To-Do List</h1>
         <Form 
-          submitTask={this.handleSubmit}
-          inputText={this.state.task}
-          changeInput={this.handleTaskDescriptionChange}
           addTask={this.addTask}
         />
-        {this.state.tasks.map( (task, index) => {
-          return (
-            <List 
-              descriptionTask={task.description}
-              statusTask={task.status}
-              deleteTask={ () => this.deleteTask(index)}
-              modifyTask={ () => this.modifyTask(index)}
-            />
-          )
-        })}
+        <List 
+          tasks= {this.state.tasks}
+        />
           
       </>
       
