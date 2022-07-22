@@ -9,11 +9,10 @@ class App extends Component {
 
     this.state = {
       tasks: [],
-      task: ""
     }
   }
 
-  addTask = ((string) => {
+  addTask = ( (string) => {
     const tasksClone = [{ 
       description: string, 
       status: "To do" }
@@ -23,31 +22,38 @@ class App extends Component {
     this.setState({tasks: tasksClone})
   })
 
-  handleTaskDescriptionChange = ((e) => {
-    this.setState({ task: e.target.value })
-  })
 
-  handleSubmit = ((e) => {
-    e.preventDefault()
-    this.addTask(this.state.task)
-    this.setState({task: ""}) 
+  deleteTask = ( (index) => {
+    const tasksClone = [...this.state.tasks]
+    tasksClone.splice(index, 1)
+    this.setState({
+      tasks: tasksClone
+    })
   })
 
   render() {
-    console.log(this);
+    console.log(this.state);
+    const {description, status} = this.state.tasks
     return (
 
       <>
-      <h1 className="text-3xl font-bold">
-      ToDo List
-    </h1>
-
-    <Form 
-      submitTask={this.handleSubmit}
-      inputText={this.state.task}
-      changeInput={this.handleTaskDescriptionChange}
-    />
-      
+        <h1 className="text-3xl font-bold">ToDo List</h1>
+        <Form 
+          submitTask={this.handleSubmit}
+          inputText={this.state.task}
+          changeInput={this.handleTaskDescriptionChange}
+          addTask={this.addTask}
+        />
+        {this.state.tasks.map( (task, index) => {
+          return (
+            <List 
+              descriptionTask={task.description}
+              statusTask={task.status}
+              deleteTask={() => this.deleteTask(index)}
+            />
+          )
+        })}
+          
       </>
       
     
