@@ -3,7 +3,37 @@ import Form from './components/Form'
 
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      tasks: [],
+      task: ""
+    }
+  }
+
+  addTask = ((string) => {
+    const tasksClone = [{ 
+      description: string, 
+      status: "To do" }
+      
+      ,...this.state.tasks]
+    
+    this.setState({tasks: tasksClone})
+  })
+
+  handleTaskDescriptionChange = ((e) => {
+    this.setState({ task: e.target.value })
+  })
+
+  handleSubmit = ((e) => {
+    e.preventDefault()
+    this.addTask(this.state.task)
+    this.setState({task: ""}) 
+  })
+
   render() {
+    console.log(this);
     return (
 
       <>
@@ -11,7 +41,11 @@ class App extends Component {
       ToDo List
     </h1>
 
-    <Form />
+    <Form 
+      submitTask={this.handleSubmit}
+      inputText={this.state.task}
+      changeInput={this.handleTaskDescriptionChange}
+    />
       
       </>
       
