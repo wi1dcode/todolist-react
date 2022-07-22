@@ -31,17 +31,14 @@ class App extends Component {
     })
   })
 
-  modifyTask = ( (e) => {
-    e.preventDefault()
+  modifyTask = ( (task, index) => {
     const tasksClone = [...this.state.tasks]
+    tasksClone[index] = task
     this.setState({
       tasks: tasksClone
     })
   })
 
-  openEditTask = ( () => {
-    
-  })
 
   render() {
     console.log(this.state);
@@ -53,7 +50,9 @@ class App extends Component {
           addTask={this.addTask}
         />
         <List 
-          tasks= {this.state.tasks}
+          tasks = {this.state.tasks}
+          delete = {this.deleteTask}
+          modify = {this.modifyTask}
         />
           
       </>
