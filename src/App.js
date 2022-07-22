@@ -31,6 +31,13 @@ class App extends Component {
     })
   })
 
+  modifyTask = ( (index) => {
+    const tasksClone = [...this.state.tasks]
+    this.setState({
+      tasks: tasksClone
+    })
+  })
+
   render() {
     console.log(this.state);
     const {description, status} = this.state.tasks
@@ -49,7 +56,8 @@ class App extends Component {
             <List 
               descriptionTask={task.description}
               statusTask={task.status}
-              deleteTask={() => this.deleteTask(index)}
+              deleteTask={ () => this.deleteTask(index)}
+              modifyTask={ () => this.modifyTask(index)}
             />
           )
         })}
