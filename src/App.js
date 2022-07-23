@@ -43,7 +43,7 @@ class App extends Component {
     // console.log(this.state);
     return (
 
-      <div className='flex flex-col justify-center col items-center	'>
+      <div className='flex flex-col justify-center col items-center'>
         <h1 className="text-3xl font-bold text-center	text-white mt-10 mb-10">Todolist React</h1>
         <Form 
           addTask={this.addTask}
