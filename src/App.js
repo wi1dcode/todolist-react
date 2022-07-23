@@ -15,9 +15,8 @@ class App extends Component {
   addTask = ( (string) => {
     const tasksClone = [{ 
       description: string, 
-      status: "To do" }
-      
-      ,...this.state.tasks]
+      status: "To do"
+      },...this.state.tasks]
     
     this.setState({tasks: tasksClone})
   })
@@ -41,7 +40,7 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
 
       <>
