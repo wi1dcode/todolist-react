@@ -4,15 +4,13 @@ import Task from "./Task"
 class List extends Component {
  
   render() {
-    // console.log("list Tasks",this.props)
-    
     return (
       <>
         {this.props.tasks.map( (task, index) => {
           return(
           <>
             <Task
-                key= {`${index}${task.description}`}
+                key = {task.description}
                 task = {task}
                 delete = {this.props.delete} 
                 modify = {this.props.modify} 
