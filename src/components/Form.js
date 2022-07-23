@@ -22,8 +22,8 @@ class Form extends Component {
     return (
       <>
         <form action="" onSubmit={this.handleSubmit} className="mb-5 w-full text-center">
-            <input type="text" onChange={this.handleTaskDescriptionChange} value={this.state.task} className="w-3/12 font-medium bg-white border border-slate-300 rounded-lg py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-base mr-5"/>
-            <button className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white" type='submit'>Submit</button>
+            <input type="text" onChange={this.handleTaskDescriptionChange} value={this.state.task} className="w-2/5 min-w-[200px] font-medium bg-white border border-slate-300 rounded-lg py-2 pl-3 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-base mr-5"/>
+            <button className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white w-20" type='submit'>Submit</button>
         </form>
       
       </>

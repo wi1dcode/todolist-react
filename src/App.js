@@ -52,23 +52,22 @@ class App extends Component {
 
     })
     return (
-
-      <main className='flex flex-col items-center h-screen'>
-        <header>
-          <h1 className="text-3xl font-bold text-center	text-white mt-10 mb-10">Todolist React</h1>
+      <main className='flex flex-col items-center h-screen p-8'>
+        <header className='w-full flex justify-end gap-4'>
+          <button onClick={() => this.handleFilterClick("")} className="rounded-lg border-2 border-zinc-600 bg-zinc-600 hover:bg-transparent backdrop-blur-sm hover:border-zinc-700 active:border-zinc-800 focus:outline-none py-2 pl-3 pr-3 text-white w-20">All</button>
+          <button onClick={() => this.handleFilterClick('To do')} className="rounded-lg border-2 border-rose-600 bg-rose-600 hover:bg-transparent backdrop-blur-sm hover:border-rose-700 active:border-rose-800 focus:outline-none py-2 pl-3 pr-3 text-white w-20">To do</button>
+          <button onClick={() => this.handleFilterClick("Doing")} className="rounded-lg border-2 border-yellow-600 bg-yellow-600 hover:bg-transparent backdrop-blur-sm hover:border-yellow-700 active:border-yellow-800 focus:outline-none py-2 pl-3 pr-3 text-white w-20">Doing</button>
+          <button onClick={() => this.handleFilterClick("Done")} className="rounded-lg border-2 border-green-600 bg-green-600 hover:bg-transparent backdrop-blur-sm hover:border-green-700 active:border-green-800 focus:outline-none py-2 pl-3 pr-3 text-white w-20">Done</button>
         </header>
-        <section className="flex gap-3">
-          <button onClick={() => this.handleFilterClick("")} className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white">All</button>
-          <button onClick={() => this.handleFilterClick('To do')} className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white">To do</button>
-          <button onClick={() => this.handleFilterClick("Doing")} className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white">Doing</button>
-          <button onClick={() => this.handleFilterClick("Done")} className="rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800 focus:outline-none py-2 pl-3 pr-3 text-white">Done</button>
+        <section className="w-full mt-10">
+        <h1 className="text-4xl font-bold	text-white mt-10 mb-10 text-center">To do list React</h1>
         </section>
-        <section>
+        <section className='w-full'>
           <Form 
             addTask={this.addTask}
           />
         </section>
-        <section className="overflow-x-auto">
+        <section className="overflow-x-auto w-full flex justify-center flex-wrap">
           <List 
             tasks = {filteredTasks}
             delete = {this.deleteTask}
