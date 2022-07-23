@@ -48,23 +48,23 @@ import React, { Component } from 'react'
   render() {
     // console.log(this.state);
     return (
-      <div style={{border: '2px red solid'}}>
+      <div className="text-white w-2/5 text-center pb-5 backdrop-blur-sm">
       
-        <p>{this.state.task.description}</p>
-        <p>{this.state.task.status}</p>
+        <p className='font-medium drop-shadow-lg'>{this.state.task.description}</p>
+        <p className='drop-shadow-lg mb-2'>{this.state.task.status}</p>
         {(this.state.currentView === "task")
           ?   <>
-                <button className="border-solid border-2 border-red-600 ..." onClick={this.handleChangeViewClick}>Modify</button>
-                <button className="border-solid border-2 border-indigo-600 ..." onClick={this.props.delete}>Delete</button>
+                <button className="rounded-lg bg-yellow-600 hover:bg-yellow-700 active:bg-yellow-800 focus:outline-none py-1 pl-3 pr-3 text-white mr-2" onClick={this.handleChangeViewClick}>Modify</button>
+                <button className="rounded-lg bg-red-600 hover:bg-red-700 active:bg-red-800 focus:outline-none py-1 pl-3 pr-3 text-white" onClick={this.props.delete}>Delete</button>
               </>
-          :   <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.task.description} onChange={this.handleTaskDescriptionChange}/>
-                <select name="" id="" onChange={this.handleTaskStatusChange}>
-                  <option value="To do">To do</option>
-                  <option value="Doing">Doing</option>
-                  <option value="Done">Done</option>
+          :   <form action="" onSubmit={this.handleSubmit} className="w-full text-white">
+                <input type="text" value={this.state.task.description} onChange={this.handleTaskDescriptionChange} className="bg-white border border-slate-300 rounded-lg py-1 pl-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-base text-black"/>
+                <select name="" id="" onChange={this.handleTaskStatusChange} className="text-black ml-3 border border-slate-300 rounded-lg py-1 pl-2 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-base">
+                  <option value="To do" className='rounded-full'>To do</option>
+                  <option value="Doing" className='rounded-full'>Doing</option>
+                  <option value="Done" className='rounded-full'>Done</option>
                 </select>
-                <button className="border-solid border-2 border-indigo-600" type='submit'>Valider</button>
+                <button className="rounded-lg bg-green-600 hover:bg-green-700 active:bg-green-800 focus:outline-none py-1 pl-3 pr-3 text-white ml-3 text-white" type='submit'>Valider</button>
               </form>
         }
         
